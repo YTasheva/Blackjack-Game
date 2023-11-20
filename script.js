@@ -37,7 +37,7 @@ newGameButton.addEventListener("click", function () {
     gameOver = false;
     playerWon = false;
 
-    deck = createDeck(deck); 
+    deck = createDeck(); 
     shuffleDeck(deck);
     dealerCards = [getNextCard(), getNextCard()];
     playerCards = [getNextCard(), getNextCard()];
@@ -49,21 +49,8 @@ newGameButton.addEventListener("click", function () {
     showStatus();
 });
 
-hitButton.addEventListener("click", function() {
-    playerCards.push(getNextCard());
-    checkForEndOfGame();
-    showStatus();
-  });
-  
-  stayButton.addEventListener("click", function() {
-    gameOver = true;
-    checkForEndOfGame();
-    showStatus();
-  });
-
-class Deck{
-    createDeck() {
-  let deck = [];
+function createDeck() {
+        let deck = [];
         for (let suitIdx = 0; suitIdx < suits.length; suitIdx++) {
             for (let valueIdx = 0; valueIdx < values.length; valueIdx++) {
                 let card = {
@@ -73,10 +60,8 @@ class Deck{
                 deck.push(card);
             }
         }
-        this.deck = deck();
         return deck;
     }
-}
 
 function shuffleDeck(deck) {
         for (let i = 0; i < deck.length; i++) {
