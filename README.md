@@ -62,7 +62,7 @@ This is a difficult challenge. How you build this game is up to you. The goal he
 
 ### Screenshot
 
-<img width="984" alt="Screenshot 2023-11-11 at 14 49 41" src="">
+<img width="1141" alt="Screenshot " src="https://github.com/YTasheva/Blackjack-Game/assets/148258557/75589923-62a8-46a4-93e4-e8a7830b5eff">
 
 ### Links
 
