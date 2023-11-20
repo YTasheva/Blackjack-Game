@@ -37,7 +37,7 @@ newGameButton.addEventListener("click", function () {
     gameOver = false;
     playerWon = false;
 
-    createDeck(deck); 
+    deck = createDeck(deck); 
     shuffleDeck(deck);
     dealerCards = [getNextCard(), getNextCard()];
     playerCards = [getNextCard(), getNextCard()];
@@ -63,14 +63,9 @@ hitButton.addEventListener("click", function() {
 
 class Deck{
     createDeck() {
-  this.deck = [];
-
- let suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
-let values = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
-
+  let deck = [];
         for (let suitIdx = 0; suitIdx < suits.length; suitIdx++) {
             for (let valueIdx = 0; valueIdx < values.length; valueIdx++) {
-                this.deck.push("${values[value]} of ${suits[suit]}")
                 let card = {
                     suit: suits[suitIdx],
                     value: values[valueIdx]
@@ -78,7 +73,7 @@ let values = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
                 deck.push(card);
             }
         }
-        this.deck = new deck();
+        this.deck = deck();
         return deck;
     }
 }
