@@ -37,7 +37,7 @@ newGameButton.addEventListener("click", function () {
     gameOver = false;
     playerWon = false;
 
-    deck = createDeck();
+    createDeck(deck); 
     shuffleDeck(deck);
     dealerCards = [getNextCard(), getNextCard()];
     playerCards = [getNextCard(), getNextCard()];
@@ -49,10 +49,28 @@ newGameButton.addEventListener("click", function () {
     showStatus();
 });
 
-function createDeck() {
-    let deck = [];
+hitButton.addEventListener("click", function() {
+    playerCards.push(getNextCard());
+    checkForEndOfGame();
+    showStatus();
+  });
+  
+  stayButton.addEventListener("click", function() {
+    gameOver = true;
+    checkForEndOfGame();
+    showStatus();
+  });
+
+class createDeck {
+constructor() {
+  this.deck = [];
+ let suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
+let values = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
+
+        let deck = new Deck();
         for (let suitIdx = 0; suitIdx < suits.length; suitIdx++) {
             for (let valueIdx = 0; valueIdx < values.length; valueIdx++) {
+                this.deck.push("${values[value]} of ${suits[suit]}")
                 let card = {
                     suit: suits[suitIdx],
                     value: values[valueIdx]
@@ -62,6 +80,7 @@ function createDeck() {
         }
         this.deck = deck;
         return deck;
+    }
 }
 
 function shuffleDeck(deck) {
@@ -72,7 +91,9 @@ function shuffleDeck(deck) {
             deck[swapIdx] = currentCard;
             deck[i] = randomCard;
         }
-    }
+
+        return this;
+}
 
 function getNextCard() {
     let nextCard = deck.shift();
@@ -84,16 +105,22 @@ function getCardString(card) {
     return card.value + " of " + card.suit;
 }
 
-
 function showStatus() {
     if (!gameStarted) {
         textArea.innerText = "Welcome to BlackJack!";
         return;
     }
 
-    for (let i = 0; i < deck.length; i++) {
-        textArea.innerText += "\n" + getCardString(deck[i]);
+    let dealerCardString = "string";
+    for (let i = 0; i < dealerCards.length; i++) {
+        dealerCardString += getCardString(dealerCards[i]) + "\n";
     }
 
-}
+    let playerCardString = "string";
+    for (let i = 0; i < playerCards.length; i++) {
+        playerCardString += getCardString(playerCards[i]) + "\n";
+    }
+ }
+  
+
 
