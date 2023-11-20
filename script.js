@@ -61,13 +61,13 @@ hitButton.addEventListener("click", function() {
     showStatus();
   });
 
-class createDeck {
-constructor() {
+class Deck{
+    createDeck() {
   this.deck = [];
+
  let suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
 let values = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
 
-        let deck = new Deck();
         for (let suitIdx = 0; suitIdx < suits.length; suitIdx++) {
             for (let valueIdx = 0; valueIdx < values.length; valueIdx++) {
                 this.deck.push("${values[value]} of ${suits[suit]}")
@@ -78,7 +78,7 @@ let values = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
                 deck.push(card);
             }
         }
-        this.deck = deck;
+        this.deck = new deck();
         return deck;
     }
 }
