@@ -67,8 +67,8 @@ This is a difficult challenge. How you build this game is up to you. The goal he
 ### Links
 
 - Solution URL: https://github.com/YTasheva/Blackjack-Game
-- Live Site URL:
-  
+- Live Site URL: https://ytasheva.github.io/Blackjack-Game/
+   
 ### Built With
 
 - JavaScript, HTML, CSS
